@@ -1,6 +1,4 @@
 import scrapy
-
-
 class GhostItem(scrapy.Item):
 	email = scrapy.Field()
 	phone = scrapy.Field()
