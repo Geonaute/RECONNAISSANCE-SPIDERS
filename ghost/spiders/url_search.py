@@ -9,11 +9,9 @@ class urlSpider(scrapy.Spider):
 		'http://www.freecounterstat.com',
 		'http://www.topparanormalsites.com/',
 	]
-
 	with open('url_list.csv') as f:
 		start_urls = [url.strip() for url in f.readlines()]
 
-	
 	def parse(self, response):
 		links = response.xpath('*//@href').extract()
 		check_dict = {
@@ -35,7 +33,6 @@ class urlSpider(scrapy.Spider):
 		for link in links:
 			if 'www' in link:
 				yield item_format(link, '')
-				
 			else:
 				for i in check_dict:
 					if check(i):
